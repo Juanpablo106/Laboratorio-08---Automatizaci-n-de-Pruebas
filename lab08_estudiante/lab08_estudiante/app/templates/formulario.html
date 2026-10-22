@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }} · Inventario IS1{% endblock %}
+{% block contenido %}
+<h2>{{ titulo }}</h2>
+{% if errores %}
+<ul class="errores" role="alert">
+  {% for e in errores %}<li>{{ e }}</li>{% endfor %}
+</ul>
+{% endif %}
+<form method="post">
+  <label for="nombre">Nombre</label>
+  <input id="nombre" name="nombre" value="{{ datos['nombre'] }}">
+  <label for="precio">Precio</label>
+  <input id="precio" name="precio" value="{{ datos['precio'] }}">
+  <label for="stock">Stock</label>
+  <input id="stock" name="stock" value="{{ datos['stock'] }}">
+  <button type="submit">Guardar</button>
+  <a href="{{ url_for('listar_productos') }}">Cancelar</a>
+</form>
+{% endblock %}

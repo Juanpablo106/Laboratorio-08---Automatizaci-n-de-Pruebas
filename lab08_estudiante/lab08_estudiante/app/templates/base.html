@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Inventario IS1{% endblock %}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #1f2933; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #2f5d8a; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.4rem; color: #2f5d8a; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #d9e2ec; }
+    label { display: block; margin-top: .8rem; font-weight: 600; }
+    input { padding: .4rem; width: 100%; max-width: 320px; box-sizing: border-box; }
+    button, .boton { margin-top: 1rem; padding: .45rem .9rem; background: #2f5d8a; color: #fff; border: 0; border-radius: 4px; cursor: pointer; text-decoration: none; font-size: .9rem; }
+    td form { display: inline; }
+    td button { margin-top: 0; background: #b42318; }
+    .mensaje { background: #e3f2e8; padding: .6rem; border-radius: 4px; }
+    .errores { background: #fde8e8; padding: .6rem 1.5rem; border-radius: 4px; color: #b42318; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Inventario IS1</h1>
+    {% if session.usuario %}<a href="{{ url_for('logout') }}">Cerrar sesión</a>{% endif %}
+  </header>
+  {% with mensajes = get_flashed_messages() %}
+    {% for m in mensajes %}<p class="mensaje" role="status">{{ m }}</p>{% endfor %}
+  {% endwith %}
+  {% block contenido %}{% endblock %}
+</body>
+</html>
