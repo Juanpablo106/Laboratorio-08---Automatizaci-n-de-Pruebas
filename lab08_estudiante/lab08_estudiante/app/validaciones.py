@@ -50,7 +50,7 @@ def validar_producto(nombre, precio, stock):
 
     if not _es_numero(precio):
         errores.append("El precio debe ser un número")
-    elif precio < 0 or precio > PRECIO_MAX:
+    elif precio <= 0 or precio > PRECIO_MAX:
         errores.append("El precio debe ser mayor que 0 y como máximo 100,000")
 
     if not isinstance(stock, int) or isinstance(stock, bool):
