@@ -1,1 +1,0 @@
-# Laboratorio-08---Automatizaci-n-de-Pruebas
